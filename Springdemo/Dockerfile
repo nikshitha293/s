@@ -1,0 +1,14 @@
+# Use a lightweight OpenJDK image
+FROM openjdk:17-jdk-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the jar file from the target folder to the container
+COPY target/*.jar app.jar
+
+# Expose the port your app runs on
+EXPOSE 8080
+
+# Run the Spring Boot application
+ENTRYPOINT ["java", "-jar", "app.jar"]
